@@ -1,0 +1,73 @@
+LED Blinking Sketch:
+void setup( )
+{
+pinMode(13, OUTPUT);      //Digital Pin 13 as a Output Pin
+
+}
+void loop( )
+{
+digitalWrite(13, HIGH); 
+delay(1000);
+ digitalWrite(13, LOW); 
+ delay(1000);
+}
+
+
+
+Push Button & LED Sketch:
+
+const int buttonPin = 8; 
+ const int ledPin =  13;  
+int buttonState = 0;  
+void setup( )
+{
+pinMode(ledPin , OUTPUT); 
+ pinMode(buttonPin , INPUT);
+}
+void loop( )
+{
+buttonState = digitalRead(buttonPin); 
+if (buttonState == HIGH)
+     {
+digitalWrite(ledPin , HIGH);
+     }
+else 
+    {
+digitalWrite(ledPin , LOW);
+     }
+}
+
+
+
+
+
+
+Ultrasonic Sensor Sketch:
+      #define trigPin 8
+   #define echoPin 9
+           long duration;
+    int distance;
+   void setup( )
+   {
+   Serial.begin(9600);
+   pinMode (trigPin, OUTPUT);
+   pinMode (echoPin, INPUT);
+  }
+  void loop( )
+{
+  digitalWrite (trigPin,LOW);
+  delayMicroseconds (2);
+  digitalWrite (trigPin,HIGH);
+  delay Microseconds(10);
+  digitalWrite (trigPin,LOW);
+  
+  duration=pulseIn (echoPin,HIGH);
+  distance=(duration*0.034/2);
+  Serial.print ("Distance : ");
+  Serial.print (distance);
+  Serial.println (" cm ");
+  delay(1000);
+               
+}
+
+
